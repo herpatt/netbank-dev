@@ -1,0 +1,53 @@
+<beans 
+    xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xmlns:security="http://www.springframework.org/schema/security"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans     
+        http://www.springframework.org/schema/beans/spring-beans.xsd    
+        http://www.springframework.org/schema/security     
+        http://www.springframework.org/schema/security/spring-security.xsd           
+        http://www.springframework.org/schema/context  
+        http://www.springframework.org/schema/context/spring-context.xsd">
+        
+    <bean id="myAuthenticationSuccessHandler" class="com.dhanjyothi.security.handlers.ApplicationAuthenticationSuccessHandler"/>
+    
+    <bean id="passwordEncoder" class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder">  
+        <constructor-arg name="strength" value="11"/>  
+    </bean>    
+    
+    <bean id="authProvider" class="org.springframework.security.authentication.dao.DaoAuthenticationProvider">
+        <property name="userDetailsService" ref="userDetailsService" />
+        <property name="passwordEncoder" ref="passwordEncoder" />
+    </bean>
+    
+    <bean id="logoutSuccessHandler" class="org.springframework.security.web.authentication.logout.SimpleUrlLogoutSuccessHandler"/>
+    
+    <security:http pattern="/resources/**" security="none"></security:http>
+    
+    <security:http auto-config="true" use-expressions="true">
+        <security:csrf disabled="true"/>
+        <security:intercept-url pattern="/login" access="permitAll"/>
+        <security:intercept-url pattern="/register" access="permitAll" />
+        <security:intercept-url pattern="/logout" access="permitAll"/>
+        <security:intercept-url pattern="/home" access="permitAll"/>
+        <security:intercept-url pattern="/admin/**" access="hasAnyRole('ROLE_ADMIN','ROLE_DEALER')"/>
+        <security:intercept-url pattern="/dealer/**" access="hasRole('ROLE_DEALER')" />
+        <security:intercept-url pattern="/common/**" access="hasAnyRole('ROLE_ADMIN','ROLE_DEALER')"/>
+        <security:intercept-url pattern="/profile" access="isAuthenticated()"/>
+        
+        <security:form-login 
+            login-page="/login"
+            authentication-failure-url="/login?error" 
+            authentication-success-handler-ref="myAuthenticationSuccessHandler"
+            login-processing-url="/perform_login"
+            default-target-url="/home"/>
+            
+        <security:logout invalidate-session="true"  success-handler-ref="logoutSuccessHandler" logout-url="/perform_logout" delete-cookies="JSESSIONID"/>
+    </security:http>
+    
+    <security:authentication-manager>
+        <security:authentication-provider ref="authProvider"/>
+    </security:authentication-manager>
+</beans>
