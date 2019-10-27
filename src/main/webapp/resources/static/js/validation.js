@@ -2,6 +2,7 @@ $(document).ready(function() {
 	$.validator.addMethod("lettersonly", function(value, element) {
 		return this.optional(element) || /^[a-z]+$/i.test(value);
 	}, "Please enter only alphabets");
+<<<<<<< HEAD
 	
 	
 	$(".login-form").validate({
@@ -72,6 +73,59 @@ $(document).ready(function() {
 			pan : {
 				digits : true
 			},			
+=======
+
+	$(".signup-form").validate({
+		rules : {
+			firstName : {
+				required : true,
+				lettersonly : true
+			},
+			lastName : {
+				required : true,
+				lettersonly : true
+			},
+			DOB : {
+				required : true,
+				date : true
+			},	
+			addressLine1 : {
+				required : true
+			},	
+			city : {
+				required : true,
+				lettersonly : true
+			},	
+			state : {
+				required : true,
+				lettersonly : true
+			},
+			pincode : {
+				required : true,
+				digits : true,
+				maxlength : 6
+			},
+			mobileNumber : {
+				required : true,
+				digits : true,
+				maxlength : 10
+			},
+			email : {
+				required : true,
+				email : true
+			},
+			aadhar : {
+				required : true,
+				digits : true
+			},
+			pan : {
+				digits : true
+			},			
+			password : {
+				required : true,
+				minlength : 5,
+			},
+>>>>>>> branch 'master' of https://github.com/herpatt/netbank-dev
 			userName : {
 				required : true,
 				minlength : 8,
