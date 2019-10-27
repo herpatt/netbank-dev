@@ -13,8 +13,8 @@
     <div class="container">
       <form class="login-form text-center p-5 login-border" name="loginform" action="<%=baseURL%>/perform_login" method="post">
         <p class="h4 mb-4">Login</p>
-        <input type="text" class="form-control mb-4" placeholder="User Name" name="userName"/> 
-        <input type="password" class="form-control mb-4" placeholder="Password" name="password"/>
+        <input type="text" class="form-control mb-4" placeholder="User Name" name="username" id="username"/> 
+        <input type="password" class="form-control mb-4" placeholder="Password" name="password" id="password"/>
         <button class="btn btn-danger btn-block my-4" type="submit">Login</button>
         <p>
           Don't have an Account? <a href="<%=baseURL%>/signup">Sign Up</a>

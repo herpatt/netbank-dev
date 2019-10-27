@@ -31,10 +31,7 @@
         <security:intercept-url pattern="/login" access="permitAll"/>
         <security:intercept-url pattern="/register" access="permitAll" />
         <security:intercept-url pattern="/logout" access="permitAll"/>
-        <security:intercept-url pattern="/home" access="permitAll"/>
-        <security:intercept-url pattern="/admin/**" access="hasAnyRole('ROLE_ADMIN','ROLE_DEALER')"/>
-        <security:intercept-url pattern="/dealer/**" access="hasRole('ROLE_DEALER')" />
-        <security:intercept-url pattern="/common/**" access="hasAnyRole('ROLE_ADMIN','ROLE_DEALER')"/>
+        <security:intercept-url pattern="/home" access="isAuthenticated()"/>
         <security:intercept-url pattern="/profile" access="isAuthenticated()"/>
         
         <security:form-login 

@@ -14,7 +14,7 @@ public class User {
  
 	@Id
 	@Column(name="USER_ID")
-	private int userId;
+	private String userId;
 	@Column(name="USERNAME")
 	private String userName;
 	@Column(name="PASSWORD")
@@ -50,11 +50,11 @@ public class User {
 	@Column(name="PAN")
 	private String pan;
 
-	public int getUserId() {
+	public String getUserId() {
 		return userId;
 	}
 
-	public void setUserId(int userId) {
+	public void setUserId(String userId) {
 		this.userId = userId;
 	}
 

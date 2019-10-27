@@ -14,61 +14,61 @@
       <div class="panel">
         <div class="panel-heading panel-primary">Customer Registration</div>
         <div class="panel-body">
-          <form class="signup-form" name="signupform" action="<%=baseURL%>/signup" method="post">
+          <form:form method="POST" modelAttribute="user" class="signup-form">
             <div class="form-row">
               <div class="form-group col">
                 <label for="First Name">First Name</label> 
-                <input type="text" class="form-control" name="firstName"/>
+                <form:input class="form-control" path="firstName"/>
               </div>
               <div class="form-group col">
-                <label for="Last Name">Last Name</label> <input type="text" class="form-control" name="lastName"/>
+                <label for="Last Name">Last Name</label> <form:input class="form-control" path="lastName"/>
               </div>
               <div class="form-group col">
-                <label for="DOB">DOB</label> <input type="text" class="form-control" name="DOB" placeholder="mm/dd/yyyy"/>
-              </div>
-            </div>
-            <div class="form-row">
-              <div class="form-group col">
-                <label for="Address Line 1">Address Line 1</label> <input type="text" class="form-control" name="addressLine1"/>
-              </div>
-              <div class="form-group col">
-                <label for="Address Line 2">Address Line 2</label> <input type="text" class="form-control" name="addressLine1" />
-              </div>
-              <div class="form-group col">
-                <label for="City">City</label> <input type="text" class="form-control" name="city"/>
+                <label for="DOB">DOB</label> <form:input class="form-control" path="dob" placeholder="mm/dd/yyyy"/>
               </div>
             </div>
             <div class="form-row">
               <div class="form-group col">
-                <label for="State">State</label> <input type="text" class="form-control" name="state"/>
+                <label for="Address Line 1">Address Line 1</label>  <form:input class="form-control" path="addressLine1"/>
               </div>
               <div class="form-group col">
-                <label for="Pincode">Pincode</label> <input type="text" class="form-control" name="pincode"/>
+                <label for="Address Line 2">Address Line 2</label>  <form:input class="form-control" path="addressLine2"/>
               </div>
               <div class="form-group col">
-                <label for="Mobile Number">Mobile Number</label> <input type="text" class="form-control" name="mobileNumber" />
-              </div>
-            </div>
-            <div class="form-row">
-              <div class="form-group col">
-                <label for="Email">Email</label> <input type="text" class="form-control" name="email" />
-              </div>
-              <div class="form-group col">
-                <label for="Aadhar">Aadhar</label> <input type="text" class="form-control" name="aadhar" />
-              </div>
-              <div class="form-group col">
-                <label for="PAN">PAN</label> <input type="text" class="form-control" name="pan" />
+                <label for="City">City</label>  <form:input class="form-control" path="city"/>
               </div>
             </div>
             <div class="form-row">
               <div class="form-group col">
-                <label for="User Name">User Name</label> <input type="text" class="form-control" name="userName" />
+                <label for="State">State</label> <form:input class="form-control" path="state"/> 
               </div>
               <div class="form-group col">
-                <label for="Password">Password</label> <input type="text" class="form-control" name="password" id="password" />
+                <label for="Pincode">Pincode</label> <form:input class="form-control" path="pin"/>
               </div>
               <div class="form-group col">
-                <label for="Confirm Password">Confirm Password</label> <input type="text" class="form-control" name="confirmpassword" />
+                <label for="Mobile Number">Mobile Number</label> <form:input class="form-control" path="mobileNumber"/> 
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group col">
+                <label for="Email">Email</label>  <form:input class="form-control" path="emailId"/> 
+              </div>
+              <div class="form-group col">
+                <label for="Aadhar">Aadhar</label> <form:input class="form-control" path="aadharId"/>
+              </div>
+              <div class="form-group col">
+                <label for="PAN">PAN</label> <form:input class="form-control" path="pan"/>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group col">
+                <label for="User Name">User Name</label> <form:input class="form-control" path="userName"/>
+              </div>
+              <div class="form-group col">
+                <label for="Password">Password</label> <form:password path="password" class="form-control"/> 
+              </div>
+              <div class="form-group col">
+                <label for="Confirm Password">Confirm Password</label> <form:password path="confirmPassword" class="form-control"/> 
               </div>
             </div>
             <div class="form-row">
@@ -121,7 +121,7 @@
                 <button type="submit" class="btn btn-primary ml-2">Register</button>
               </div>
             </div>
-          </form>
+          </form:form>
         </div>
       </div>
     </div>

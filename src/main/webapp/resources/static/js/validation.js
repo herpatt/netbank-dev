@@ -2,12 +2,11 @@ $(document).ready(function() {
 	$.validator.addMethod("lettersonly", function(value, element) {
 		return this.optional(element) || /^[a-z]+$/i.test(value);
 	}, "Please enter only alphabets");
-<<<<<<< HEAD
 	
 	
 	$(".login-form").validate({
 		rules : {
-			userName : {
+			username : {
 				required : true
 			},
 			password : {
@@ -15,7 +14,7 @@ $(document).ready(function() {
 			}			
 		},
 		messages : {
-			userName : {
+			username : {
 				required : "User Name is mandatory"
 			},
 			password : {
@@ -24,7 +23,7 @@ $(document).ready(function() {
 		},
 		errorPlacement: function(error,element) {
 		    return true;
-	    }		
+	    },			
 	});
 
 	$(".signup-form").validate({
@@ -37,7 +36,7 @@ $(document).ready(function() {
 				required : true,
 				lettersonly : true
 			},
-			DOB : {
+			dob : {
 				required : true,
 				date : true
 			},	
@@ -52,7 +51,7 @@ $(document).ready(function() {
 				required : true,
 				lettersonly : true
 			},
-			pincode : {
+			pin : {
 				required : true,
 				digits : true,
 				maxlength : 6
@@ -62,70 +61,19 @@ $(document).ready(function() {
 				digits : true,
 				maxlength : 10
 			},
-			email : {
+			emailId : {
 				required : true,
 				email : true
 			},
-			aadhar : {
-				required : true,
-				digits : true
-			},
-			pan : {
-				digits : true
-			},			
-=======
-
-	$(".signup-form").validate({
-		rules : {
-			firstName : {
-				required : true,
-				lettersonly : true
-			},
-			lastName : {
-				required : true,
-				lettersonly : true
-			},
-			DOB : {
-				required : true,
-				date : true
-			},	
-			addressLine1 : {
-				required : true
-			},	
-			city : {
-				required : true,
-				lettersonly : true
-			},	
-			state : {
-				required : true,
-				lettersonly : true
-			},
-			pincode : {
+			aadharId : {
 				required : true,
 				digits : true,
-				maxlength : 6
+				maxlength : 16
 			},
-			mobileNumber : {
-				required : true,
+			pan : {
 				digits : true,
 				maxlength : 10
-			},
-			email : {
-				required : true,
-				email : true
-			},
-			aadhar : {
-				required : true,
-				digits : true
-			},
-			pan : {
-				digits : true
 			},			
-			password : {
-				required : true,
-				minlength : 5,
-			},
->>>>>>> branch 'master' of https://github.com/herpatt/netbank-dev
 			userName : {
 				required : true,
 				minlength : 8,
@@ -136,7 +84,7 @@ $(document).ready(function() {
 				minlength : 8,
 				maxlength : 15
 			},	
-			confirmpassword: {
+			confirmPassword: {
 				required : true,
 				equalTo: "#password"
             }			
@@ -148,7 +96,7 @@ $(document).ready(function() {
 			lastName : {
 				required : "Last name is mandatory",
 			},
-			DOB : {
+			dob : {
 				required : "DOB is mandatory",
 			},			
 			addressLine1 : {
@@ -160,7 +108,7 @@ $(document).ready(function() {
 			state : {
 				required : "City is mandatory",
 			},			
-			pincode : {
+			pin : {
 				required : "PIN is mandatory",
 				digits : "Invalid PIN Number",
 				maxlength : "Max Chars allowed is 6",
@@ -170,16 +118,18 @@ $(document).ready(function() {
 				digits : "Invalid Mobile Number",
 				maxlength : "Max Chars allowed is 10",
 			},
-			email : {
+			emailId : {
 				required : "Email is mandatory",
 				email : "Invalid Email"
 			},
-			aadhar : {
+			aadharId : {
 				required : "Aadhar is mandatory",
-				digits : "Invalid Aadhar"
+				digits : "Invalid Aadhar",
+				maxlength : "Max Chars allowed is 16",
 			},
 			pan : {
-				digits : "Invalid PAN"
+				digits : "Invalid PAN",
+				maxlength : "Max Chars allowed is 10",
 			},
 			userName : {
 				required : "User Name is mandatory",
@@ -191,7 +141,7 @@ $(document).ready(function() {
 				minlength : "Password Shouls be between 8 - 15 Characters",
 				maxlength : "Password Shouls be between 8 - 15 Characters",
 			},	
-			confirmpassword: {
+			confirmPassword: {
 				required : "Confirm Password is mandatory",
 				equalTo: "Enter Confirm Password Same as Password"
 	        }			

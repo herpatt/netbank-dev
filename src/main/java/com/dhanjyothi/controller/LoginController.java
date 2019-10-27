@@ -23,7 +23,6 @@ public class LoginController {
 
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
 	public ModelAndView showRegister() {
-		
 		ModelAndView mav = new ModelAndView("login");
 		mav.addObject("user", new User());
 		return new ModelAndView("login");
@@ -37,6 +36,11 @@ public class LoginController {
 		}
 		return "login";
 	}
+	
+	@RequestMapping("/home")
+	public String dashBoard(HttpServletRequest request, Model model) {
+		return "home";
+	}	
 
 	@RequestMapping("/accsummary")
 	public String loadAccSummary(HttpServletRequest request, Model model) {
@@ -50,7 +54,6 @@ public class LoginController {
 
 	@GetMapping("/logout")
 	public String logoutPage(HttpServletRequest request, HttpSession session) {
-         session.removeAttribute("userName");
-		return "login";
+		return "redirect:perform_logout";
 	}
 }

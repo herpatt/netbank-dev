@@ -41,34 +41,29 @@ public class ApplicationAuthenticationSuccessHandler extends SimpleUrlAuthentica
 		redirectStrategy.sendRedirect(request, response, targetUrl);
 	}
 
-	public boolean hasClientRole(final HttpServletRequest request) {
-		return request.isUserInRole("ROLE_CLIENT");
+	public boolean hasCustomerRole(final HttpServletRequest request) {
+		return request.isUserInRole("ROLE_CUSTOMER");
 	}
 
-	public boolean hasAdminRole(final HttpServletRequest request) {
-		return request.isUserInRole("ROLE_ADMIN");
+	public boolean hasManagerRole(final HttpServletRequest request) {
+		return request.isUserInRole("ROLE_MANAGER");
 	}
 
-	public boolean hasDealerRole(HttpServletRequest request) {
-		return request.isUserInRole("ROLE_DEALER");
-	}
 
 	public boolean hasRole(String rolePermissionCode) {
 		return false;
 	}
 
 	protected String determineTargetUrl(final HttpServletRequest request) {
-		String redirectPage = "/login";
-		SecurityContextHolderAwareRequestWrapper securityContextHolderWrapper = new SecurityContextHolderAwareRequestWrapper(
-				request, "");
-		if (hasClientRole(securityContextHolderWrapper)) {
-			redirectPage = "/home";
-		} else if (hasAdminRole(securityContextHolderWrapper)) {
-			redirectPage = "/admin/home";
-		} else if (hasDealerRole(securityContextHolderWrapper)) {
-			redirectPage = "/dealer/home";
+		//TODO Not in use
+		String redirectPage = "/home";
+		SecurityContextHolderAwareRequestWrapper securityContextHolderWrapper = new SecurityContextHolderAwareRequestWrapper(request, "");
+		if (hasCustomerRole(securityContextHolderWrapper)) {
+			redirectPage = "/customer/home";
+		} else if (hasManagerRole(securityContextHolderWrapper)) {
+			redirectPage = "/manager/home";
 		}
-		return redirectPage;
+		return "/home";
 	}
 
 	public void setRedirectStrategy(final RedirectStrategy redirectStrategy) {
