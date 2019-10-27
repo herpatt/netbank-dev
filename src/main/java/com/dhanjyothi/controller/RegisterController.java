@@ -13,8 +13,7 @@ public class RegisterController {
 
 	@RequestMapping(value = "/signup", method = RequestMethod.GET)
 	public ModelAndView showRegister() {
-
-		return new ModelAndView("");
+		return new ModelAndView("signup");
 	}
 
 	@RequestMapping(value = "/save", method = RequestMethod.POST)
