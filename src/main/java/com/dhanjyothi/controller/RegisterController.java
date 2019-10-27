@@ -26,8 +26,15 @@ public class RegisterController {
 	}
 
 	@RequestMapping(value = "/signup", method = RequestMethod.POST)
-	public String saveRegister(@ModelAttribute("user") User user, BindingResult bindingResult) {
-		registerService.saveRegister(user);
+	public String saveRegister(@ModelAttribute("user") User user, BindingResult bindingResult,Model model) {
+		boolean isSuccess = registerService.saveRegister(user);
+		if( isSuccess ) {
+			model.addAttribute("displayMessage","User registered successfully !! Email will be sent to registered address after user activation.");
+			model.addAttribute("status","SUCCESS");
+		} else {
+			model.addAttribute("displayMessage","System Error !! Please try again.");
+			model.addAttribute("status","ERROR");
+		}
 		return "login";
 	}
 }

@@ -8,4 +8,6 @@ public interface RegisterDao {
 	public void saveRegister(User user);
 
 	public List<User> getAllUsers();
+
+	public void activateUser(String userId);
 }

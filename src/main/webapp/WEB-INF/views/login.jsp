@@ -13,6 +13,19 @@
     <div class="container">
       <form class="login-form text-center p-5 login-border" name="loginform" action="<%=baseURL%>/perform_login" method="post">
         <p class="h4 mb-4">Login</p>
+        
+        <c:if test="${ status == 'SUCCESS' }">
+          <div class="alert alert-success">
+            <c:out value="${displayMessage}"/>  
+          </div>
+        </c:if>
+        
+        <c:if test="${ status == 'ERROR' }">
+          <div class="alert alert-danger">
+            <c:out value="${displayMessage}"/>  
+          </div>
+        </c:if>        
+        
         <input type="text" class="form-control mb-4" placeholder="User Name" name="username" id="username"/> 
         <input type="password" class="form-control mb-4" placeholder="Password" name="password" id="password"/>
         <button class="btn btn-danger btn-block my-4" type="submit">Login</button>

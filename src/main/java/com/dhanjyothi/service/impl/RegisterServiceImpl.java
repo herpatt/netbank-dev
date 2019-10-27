@@ -18,11 +18,27 @@ public class RegisterServiceImpl implements RegisterService {
 	@Autowired
 	private RegisterDao registerDao;
 
-
-	public void saveRegister(User customer) {
-		registerDao.saveRegister(customer);
-
+	@Override
+	public boolean saveRegister(User customer) {
+		try {
+			registerDao.saveRegister(customer);
+			return true;
+		} catch(Exception e) {
+			e.printStackTrace();	
+		}
+		return false;
 	}
+	
+	@Override
+	public boolean activateUser(String userId) {
+		try {
+			registerDao.activateUser(userId);
+			return true;
+		} catch(Exception e) {
+			e.printStackTrace();	
+		}
+		return false;
+	}	
 
 	public List<User> getAllUsers() {
 		return registerDao.getAllUsers();

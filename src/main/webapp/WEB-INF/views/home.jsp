@@ -10,6 +10,7 @@
 <%@include file="./layout/css-include.jsp"%>
 </head>
 <body>
+  <%@include file="./layout/navigation.jsp"%>   
   <div class="home-wrapper">
     <div class="container">
       <security:authorize access="hasRole('ROLE_CUSTOMER')">
@@ -31,7 +32,7 @@
           <div class="panel-heading panel-primary">Manager Dashboard</div>
           <div class="panel-body">
             <ul class="list-group">
-              <li class="list-group-item">Approve User Registrations</li>
+              <li class="list-group-item"><a href="<%=baseURL%>/user-list">Approve User Registrations</a></li>
             </ul>
           </div>
         </div>
