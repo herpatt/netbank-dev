@@ -23,7 +23,7 @@ public class RegisterDaoImpl implements RegisterDao {
 
 	public void saveRegister(User customer) {
 		customer.setPassword(passwordEncoder.encode(customer.getPassword()));
-		customer.setUserStatus("C");
+		customer.setUserRole("C");
 		customer.setUserStatus("A");
 		customer.setUserId(UUID.randomUUID().toString());
 		

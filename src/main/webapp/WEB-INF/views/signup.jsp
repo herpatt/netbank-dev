@@ -43,10 +43,10 @@
                 <label for="State">State</label> <form:input class="form-control" path="state"/> 
               </div>
               <div class="form-group col">
-                <label for="Pincode">Pincode</label> <form:input class="form-control" path="pin"/>
+                <label for="Pincode">Pincode</label> <form:input class="form-control" path="pin" maxlength="6"/>
               </div>
               <div class="form-group col">
-                <label for="Mobile Number">Mobile Number</label> <form:input class="form-control" path="mobileNumber"/> 
+                <label for="Mobile Number">Mobile Number</label> <form:input class="form-control" path="mobileNumber" maxlength="10"/> 
               </div>
             </div>
             <div class="form-row">
@@ -54,10 +54,10 @@
                 <label for="Email">Email</label>  <form:input class="form-control" path="emailId"/> 
               </div>
               <div class="form-group col">
-                <label for="Aadhar">Aadhar</label> <form:input class="form-control" path="aadharId"/>
+                <label for="Aadhar">Aadhar</label> <form:input class="form-control" path="aadharId" maxlength="16"/>
               </div>
               <div class="form-group col">
-                <label for="PAN">PAN</label> <form:input class="form-control" path="pan"/>
+                <label for="PAN">PAN</label> <form:input class="form-control" path="pan" maxlength="10"/>
               </div>
             </div>
             <div class="form-row">
