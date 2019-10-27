@@ -21,26 +21,27 @@ import com.dhanjyothi.util.DhanJyothiUtil;
 public class AccountServiceImpl implements AccountService {
 	
 	@Autowired
-	private AccountDao ad;
+	private AccountDao accountDao;
+	
 	
 	@Autowired
 	private DhanJyothiUtil dj;
 
 	public Account getAccountDetails(int userId, String accountType) throws Exception {
-		return ad.getAccountDetails(userId, accountType);
+		return accountDao.getAccountDetails(userId, accountType);
 	}
 
 	public void openSavingsAccount(User user) throws Exception {
 		Account ac = new Account("savings",10000, dj.getCurrentDate(),dj.getCurrentDate(),user);
-		ad.openSavingsAccount(ac,false);
+		accountDao.openSavingsAccount(ac,false);
 	}
 
 	public void openTermAccount(Account account, User user) throws Exception {
-       ad.openTermAccount(account);
+       accountDao.openTermAccount(account);
 	}
 
 	public List<Account> getTermAccountDetails(int userId, String accountType) throws Exception {
-		return ad.getTermAccountDetails(userId, accountType);
+		return accountDao.getTermAccountDetails(userId, accountType);
 	}
 
 	public Map<Integer, String> getTenureDetails() {
@@ -60,8 +61,14 @@ public class AccountServiceImpl implements AccountService {
 		return null;
 	}
 
-	public void saveBeneficiaries(Account account, Beneficiaries beneficiaries) throws Exception {
-
+	public boolean saveBeneficiaries(Beneficiaries beneficiaries)  {
+		try {
+			accountDao.saveBeneficiaries(beneficiaries);
+			return true;
+		} catch(Exception e) {
+			e.printStackTrace();	
+		}
+		return false;
 	}
 
 	public boolean checkAccountExists(Beneficiaries beneficiaries) throws Exception {
@@ -85,7 +92,7 @@ public class AccountServiceImpl implements AccountService {
 	}
 
 	public boolean isUserNameExists(String name) throws Exception {
-		if(ad.isUserNameExists(name)!=null){
+		if(accountDao.isUserNameExists(name)!=null){
 		return true;
 		}
 		else
@@ -93,11 +100,11 @@ public class AccountServiceImpl implements AccountService {
 	}
 
 	public Account checkAccountExists(int accountId) throws Exception {
-		return ad.checkAccountExists(accountId);
+		return accountDao.checkAccountExists(accountId);
 
 	}
 
 	public User getUserById(int userId) throws Exception {
-		return ad.getUserById(userId);
+		return accountDao.getUserById(userId);
 	}
 }

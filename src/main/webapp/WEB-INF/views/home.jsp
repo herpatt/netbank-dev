@@ -14,10 +14,22 @@
   <div class="home-wrapper">
     <div class="container">
       <security:authorize access="hasRole('ROLE_CUSTOMER')">
+        <c:if test="${ status == 'SUCCESS' }">
+          <div class="alert alert-success">
+            <c:out value="${displayMessage}"/>  
+          </div>
+        </c:if>
+        
+        <c:if test="${ status == 'ERROR' }">
+          <div class="alert alert-danger">
+            <c:out value="${displayMessage}"/>  
+          </div>
+        </c:if>         
         <div class="panel">
           <div class="panel-heading panel-primary">Customer Dashboard</div>
           <div class="panel-body">
             <ul class="list-group">
+              <li class="list-group-item"><a href="<%=baseURL%>/beneficiary">Add Beneficiary</a></li>
               <li class="list-group-item">Open new account</li>
               <li class="list-group-item">Check account balance</li>
               <li class="list-group-item">Funds transfer</li>

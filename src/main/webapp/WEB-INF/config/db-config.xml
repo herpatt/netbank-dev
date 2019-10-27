@@ -19,6 +19,7 @@
         <property name="annotatedClasses">
             <list>
                 <value>com.dhanjyothi.model.User</value>
+                <value>com.dhanjyothi.model.Beneficiaries</value>
             </list>
         </property>
 

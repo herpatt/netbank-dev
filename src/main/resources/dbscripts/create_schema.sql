@@ -25,3 +25,15 @@ commit;
 
 
 
+CREATE TABLE `BENEFICIARY` (
+  `BEN_ID` varchar(50) NOT NULL,
+  `OWNER_ID` varchar(50) NOT NULL,
+  `BEN_TYPE` char(1) NOT NULL,
+  `BEN_NICK_NAME` varchar(100) DEFAULT NULL,
+  `BEN_NAME` varchar(100) DEFAULT NULL,
+  `BEN_ACCT_NUM` int(11) DEFAULT NULL,
+  `BEN_BANK` varchar(100) DEFAULT NULL,
+  `BEN_BANK_IFSC` varchar(11) DEFAULT NULL,
+   PRIMARY KEY (`BEN_ID`)
+);
+

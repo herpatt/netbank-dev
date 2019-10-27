@@ -32,6 +32,9 @@
         <security:intercept-url pattern="/register" access="permitAll" />
         <security:intercept-url pattern="/logout" access="permitAll"/>
         <security:intercept-url pattern="/home" access="isAuthenticated()"/>
+        <security:intercept-url pattern="/addbeneficiary" access="hasRole('ROLE_CUSTOMER')" />
+        <security:intercept-url pattern="/activate-user" access="hasRole('ROLE_MANAGER')" />
+        <security:intercept-url pattern="/user-list" access="hasRole('ROLE_MANAGER')" />
         <security:intercept-url pattern="/profile" access="isAuthenticated()"/>
         
         <security:form-login 

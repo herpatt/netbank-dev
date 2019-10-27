@@ -27,7 +27,7 @@ public interface AccountService {
 
 	void updateSavingsAccount(Account account, User user) throws Exception;
 	
-	void saveBeneficiaries(Account account,Beneficiaries beneficiaries) throws Exception;
+	boolean saveBeneficiaries(Beneficiaries beneficiaries);
 	
 	boolean checkAccountExists(Beneficiaries beneficiaries) throws Exception;
 	

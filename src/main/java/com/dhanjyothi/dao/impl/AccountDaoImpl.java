@@ -1,6 +1,7 @@
 package com.dhanjyothi.dao.impl;
 
 import java.util.List;
+import java.util.UUID;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -60,8 +61,8 @@ public class AccountDaoImpl implements AccountDao {
 
 	public void saveBeneficiaries(Beneficiaries beneficiaries) throws Exception {
 		Session session = sessionFactory.getCurrentSession();
+		beneficiaries.setBeneficiaryId(UUID.randomUUID().toString());
  	    session.persist(beneficiaries);
-
 	}
 
 	public Account checkAccountExists(int accountId) throws Exception {
